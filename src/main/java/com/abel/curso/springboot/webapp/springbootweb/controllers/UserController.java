@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.abel.curso.springboot.webapp.springbootweb.models.User;
+
 
 
 @Controller
@@ -13,9 +15,11 @@ public class UserController {
     
     @GetMapping("/details")
     public String details(Model model) {
+
+        User user = new User("Abel","Llorente");
+
         model.addAttribute("title", "Hola Mundo Spring Boot");
-        model.addAttribute("name", "Abel");
-        model.addAttribute("lastname", "Llorente");
+        model.addAttribute("user", user);
         return "details";
     }
 
